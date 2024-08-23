@@ -1,3 +1,5 @@
+#!/usr/bin/env groovy
+
 import com.example.TrivyScanner
 
 def scanCode(Map config = [:]) {
