@@ -57,3 +57,89 @@ pipeline {
         }
     }
 }
+
+
+## Docker Management
+
+### Overview
+
+This class provides methods for managing Docker operations, including login, build, push, and remove images.
+
+### Methods
+
+- `dockerLogin(config: Map)`:
+  - **Description**: Logs into a Docker registry.
+  - **Parameters**:
+    - `registryUrl`: URL of the Docker registry.
+    - `username`: Docker registry username.
+    - `password`: Docker registry password.
+
+- `dockerBuild(config: Map)`:
+  - **Description**: Builds a Docker image.
+  - **Parameters**:
+    - `imageName`: Name of the Docker image.
+    - `dockerfileDir`: Directory containing the Dockerfile.
+    - `tag`: Tag for the Docker image.
+
+- `dockerPush(config: Map)`:
+  - **Description**: Pushes a Docker image to a registry.
+  - **Parameters**:
+    - `imageName`: Name of the Docker image.
+    - `tag`: Tag for the Docker image.
+    - `registryUrl`: Optional URL of the Docker registry.
+
+- `dockerRemove(config: Map)`:
+  - **Description**: Removes the last built Docker image.
+  - **Parameters**:
+    - `imageName`: Name of the Docker image.
+    - `tag`: Tag for the Docker image.
+
+### Usage
+
+```groovy
+@Library('your-shared-library') _
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Docker Login') {
+            steps {
+                dockerManager.dockerLogin(
+                    registryUrl: 'your-registry-url',
+                    username: 'your-username',
+                    password: 'your-password'
+                )
+            }
+        }
+        
+        stage('Docker Build') {
+            steps {
+                dockerManager.dockerBuild(
+                    imageName: 'your-image-name',
+                    dockerfileDir: '.',
+                    tag: 'latest'
+                )
+            }
+        }
+        
+        stage('Docker Push') {
+            steps {
+                dockerManager.dockerPush(
+                    imageName: 'your-image-name',
+                    tag: 'latest',
+                    registryUrl: 'your-registry-url'
+                )
+            }
+        }
+        
+        stage('Remove Last Built Image') {
+            steps {
+                dockerManager.dockerRemove(
+                    imageName: 'your-image-name',
+                    tag: 'latest'
+                )
+            }
+        }
+    }
+}
