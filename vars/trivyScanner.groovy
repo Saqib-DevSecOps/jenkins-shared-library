@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com.example.TrivyScanner
+import com.exarth.jenkinslibrary.TrivyScanner
 
 def scanCode(Map config = [:]) {
     def trivy = new TrivyScanner(this)

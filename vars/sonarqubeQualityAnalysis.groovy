@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com.example.SonarQubeQualityAnalysis
+import com.exarth.jenkinslibrary.SonarQubeQualityAnalysis
 
 // vars/sonarqubeQualityAnalysis.groovy
 def call(Map config = [:] as Map) {

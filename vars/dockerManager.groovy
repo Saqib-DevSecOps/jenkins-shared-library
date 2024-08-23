@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com.example.DockerManager
+import com.exarth.jenkinslibrary.DockerManager
 
 
 def dockerLogin(Map config = [:]) {

@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com.example.DependencyCheckScanner
+import com.exarth.jenkinslibrary.DependencyCheckScanner
 
 // vars/dependencyCheckScanner.groovy
 def scanProjectFiles(Map config = [:]) {

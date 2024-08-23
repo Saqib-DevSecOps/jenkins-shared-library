@@ -1,7 +1,7 @@
 #!/usr/bin/env groovy
 
 
-import com.example.DockerComposeManager
+import com.exarth.jenkinslibrary.DockerComposeManager
 
 def startServices(Map config = [:]) {
     def dockerCompose = new DockerComposeManager(this)

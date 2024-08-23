@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-package com.example
+package com.exarth.jenkinslibrary
 
 class DependencyCheckScanner implements Serializable {
 
